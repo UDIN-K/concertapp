@@ -1,0 +1,1 @@
+ /home/udin/Documents/concertapp/.dart_tool/flutter_build/9926c9a95dd5d2d675c94488f2544c44/native_assets.json: 

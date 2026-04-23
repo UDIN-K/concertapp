@@ -52,3 +52,7 @@
 10	29553	1776962387133568751	/home/udin/Documents/concertapp/linux/flutter/ephemeral/flutter_linux/flutter_linux.h	472bbb46e35130f6
 10	29553	1776962387133568751	flutter/_phony_	472bbb46e35130f6
 10	29553	1776962387133568751	/home/udin/Documents/concertapp/build/linux/x64/release/flutter/_phony_	472bbb46e35130f6
+29556	131337	1776962416679875857	plugins/sqlite3_flutter_libs/CMakeFiles/sqlite3_flutter_libs_plugin.dir/__/__/_deps/sqlite3-src/sqlite3.c.o	ec873a21f66b2e20
+131338	131663	1776962518461933156	plugins/sqlite3_flutter_libs/libsqlite3_flutter_libs_plugin.so	f48e0366f3a5c766
+131663	132059	1776962518786936531	intermediates_do_not_run/concert	9391996dde846472
+132060	132332	1776962519183940653	CMakeFiles/install.util	3121330140d8709a
