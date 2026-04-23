@@ -3,6 +3,7 @@ import '/components/text_field_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../services/auth_service.dart';
 
@@ -43,6 +44,13 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
       return;
     }
 
+    if (!isLogin && password.length < 6) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Password must be at least 6 characters')),
+      );
+      return;
+    }
+
     setState(() => isLoading = true);
     try {
       if (isLogin) {
@@ -53,10 +61,16 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
       if (mounted) {
         Navigator.pushReplacementNamed(context, '/home');
       }
-    } catch (e) {
+    } on FirebaseAuthException catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(e.toString())),
+          SnackBar(content: Text(_mapAuthError(e, isGoogle: false))),
+        );
+      }
+    } catch (_) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Authentication failed. Please try again.')),
         );
       }
     } finally {
@@ -73,16 +87,52 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
       if (user != null && mounted) {
         Navigator.pushReplacementNamed(context, '/home');
       }
-    } catch (e) {
+    } on FirebaseAuthException catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Google Sign In Failed')),
+          SnackBar(content: Text(_mapAuthError(e, isGoogle: true))),
+        );
+      }
+    } catch (_) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Google Sign-In failed. Please try again.')),
         );
       }
     } finally {
       if (mounted) {
         setState(() => isLoading = false);
       }
+    }
+  }
+
+  String _mapAuthError(FirebaseAuthException e, {required bool isGoogle}) {
+    switch (e.code) {
+      case 'invalid-email':
+        return 'Invalid email format.';
+      case 'user-not-found':
+        return 'Email is not registered yet.';
+      case 'wrong-password':
+      case 'invalid-credential':
+        return 'Email or password is incorrect.';
+      case 'email-already-in-use':
+        return 'This email is already registered. Try login instead.';
+      case 'weak-password':
+        return 'Password is too weak. Use at least 6 characters.';
+      case 'operation-not-allowed':
+        if (isGoogle) {
+          return 'Google Sign-In is not enabled in Firebase Auth provider settings.';
+        }
+        return 'Email/Password auth is not enabled in Firebase Auth provider settings.';
+      case 'popup-closed-by-user':
+      case 'web-context-cancelled':
+        return 'Google Sign-In was cancelled.';
+      case 'network-request-failed':
+        return 'Network error. Check your connection and try again.';
+      case 'too-many-requests':
+        return 'Too many attempts. Please try again later.';
+      default:
+        return e.message ?? 'Authentication error: ${e.code}';
     }
   }
 
