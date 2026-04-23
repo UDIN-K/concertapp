@@ -1,0 +1,21 @@
+# ninja log v7
+1	60	1776959845337448507	sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-mkdir	d375437db6e56288
+1	60	1776959845337448507	/home/udin/Documents/concertapp/concert/build/linux/x64/debug/_deps/sqlite3-subbuild/sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-mkdir	d375437db6e56288
+61	13980	1776959859262582459	sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-download	afdad1c00077249b
+61	13980	1776959859262582459	/home/udin/Documents/concertapp/concert/build/linux/x64/debug/_deps/sqlite3-subbuild/sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-download	afdad1c00077249b
+13980	14029	1776959859308582902	sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-update	7819371f8bc30b36
+13980	14029	1776959859308582902	/home/udin/Documents/concertapp/concert/build/linux/x64/debug/_deps/sqlite3-subbuild/sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-update	7819371f8bc30b36
+14029	14077	1776959859358583383	sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-patch	49e28db57fec642f
+14029	14077	1776959859358583383	/home/udin/Documents/concertapp/concert/build/linux/x64/debug/_deps/sqlite3-subbuild/sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-patch	49e28db57fec642f
+14077	14117	1776959859398583768	sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-configure	d8d1b396bb55a7d4
+14077	14117	1776959859398583768	/home/udin/Documents/concertapp/concert/build/linux/x64/debug/_deps/sqlite3-subbuild/sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-configure	d8d1b396bb55a7d4
+14117	14170	1776959859451584279	sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-build	715188b10598978e
+14117	14170	1776959859451584279	/home/udin/Documents/concertapp/concert/build/linux/x64/debug/_deps/sqlite3-subbuild/sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-build	715188b10598978e
+14170	14211	1776959859493584683	sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-install	4111965fe1e578e3
+14170	14211	1776959859493584683	/home/udin/Documents/concertapp/concert/build/linux/x64/debug/_deps/sqlite3-subbuild/sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-install	4111965fe1e578e3
+14212	14253	1776959859535585087	sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-test	c8c83049d0c9dd80
+14212	14253	1776959859535585087	/home/udin/Documents/concertapp/concert/build/linux/x64/debug/_deps/sqlite3-subbuild/sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-test	c8c83049d0c9dd80
+14253	14315	1776959859597585684	CMakeFiles/sqlite3-populate-complete	60800d0a23aa0c8a
+14253	14315	1776959859597585684	sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-done	60800d0a23aa0c8a
+14253	14315	1776959859597585684	/home/udin/Documents/concertapp/concert/build/linux/x64/debug/_deps/sqlite3-subbuild/CMakeFiles/sqlite3-populate-complete	60800d0a23aa0c8a
+14253	14315	1776959859597585684	/home/udin/Documents/concertapp/concert/build/linux/x64/debug/_deps/sqlite3-subbuild/sqlite3-populate-prefix/src/sqlite3-populate-stamp/sqlite3-populate-done	60800d0a23aa0c8a
