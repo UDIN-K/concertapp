@@ -399,7 +399,7 @@ class _HomeFeedWidgetState extends State<HomeFeedWidget> {
                         img_desc:
                             'https://dimg.dreamflow.cloud/v1/image/jazz%20band%20performing',
                         location: 'Blue Note Club',
-                        price: 'Mulai Rp 450.000',
+                        price: 'Mulai Rp 450k',
                         title: 'The Midnight Echoes',
                         onTap: () => Navigator.pushNamed(context, '/concertDetails'),
                       ),
@@ -411,7 +411,7 @@ class _HomeFeedWidgetState extends State<HomeFeedWidget> {
                         img_desc:
                             'https://dimg.dreamflow.cloud/v1/image/edm%20festival%20crowd',
                         location: 'Stadium Arena',
-                        price: 'Mulai Rp 890.000',
+                        price: 'Mulai Rp 890k',
                         title: 'Electric Dreamland',
                         onTap: () => Navigator.pushNamed(context, '/concertDetails'),
                       ),
@@ -423,7 +423,7 @@ class _HomeFeedWidgetState extends State<HomeFeedWidget> {
                         img_desc:
                             'https://dimg.dreamflow.cloud/v1/image/choir%20performance',
                         location: 'The Grand Hall',
-                        price: 'Mulai Rp 600.000',
+                        price: 'Mulai Rp 600k',
                         title: 'Vocal Harmony Night',
                         onTap: () => Navigator.pushNamed(context, '/concertDetails'),
                       ),
@@ -435,7 +435,7 @@ class _HomeFeedWidgetState extends State<HomeFeedWidget> {
                         img_desc:
                             'https://dimg.dreamflow.cloud/v1/image/soul%20singer%20microphone',
                         location: 'Soul Lounge',
-                        price: 'Mulai Rp 550.000',
+                        price: 'Mulai Rp 550k',
                         title: 'Rhythm & Blues Gala',
                         onTap: () => Navigator.pushNamed(context, '/concertDetails'),
                       ),

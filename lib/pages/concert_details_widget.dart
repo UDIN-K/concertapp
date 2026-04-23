@@ -664,7 +664,6 @@ class _ConcertDetailsWidgetState extends State<ConcertDetailsWidget> {
                     sigmaY: 20,
                   ),
                   child: Container(
-                    height: 110,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).background80,
                       shape: BoxShape.rectangle,
@@ -683,9 +682,7 @@ class _ConcertDetailsWidgetState extends State<ConcertDetailsWidget> {
                         Padding(
                           padding:
                               const EdgeInsetsDirectional.fromSTEB(24, 20, 24, 40),
-                          child: SizedBox(
-                            height: 49,
-                            child: Row(
+                          child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.center,
@@ -694,7 +691,7 @@ class _ConcertDetailsWidgetState extends State<ConcertDetailsWidget> {
                                   flex: 1,
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
-                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                     Text(
@@ -726,15 +723,12 @@ class _ConcertDetailsWidgetState extends State<ConcertDetailsWidget> {
                                             lineHeight: 1.2,
                                           ),
                                     ),
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
+                                    Wrap(
+                                      spacing: 4,
+                                      crossAxisAlignment: WrapCrossAlignment.center,
                                       children: [
                                         Text(
-                                          'Rp 1.275.000',
+                                          'Rp 1.2M',
                                           style: FlutterFlowTheme.of(context)
                                               .titleLarge
                                               .override(
@@ -790,7 +784,7 @@ class _ConcertDetailsWidgetState extends State<ConcertDetailsWidget> {
                                                 lineHeight: 1.2,
                                               ),
                                         ),
-                                      ].divide(const SizedBox(width: 4)),
+                                      ],
                                     ),
                                   ],
                                 ),
@@ -823,7 +817,6 @@ class _ConcertDetailsWidgetState extends State<ConcertDetailsWidget> {
                                 ),
                               ].divide(const SizedBox(width: 8)),
                             ),
-                          ),
                         ),
                       ],
                     ),

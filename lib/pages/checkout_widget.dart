@@ -235,13 +235,13 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                     children: [
                       wrapWithModel(model: _model.summaryRowModel1,
                         updateCallback: () => safeSetState(() {}),
-                        child: const SummaryRowWidget(label: 'VIP Standing x 2', value: 'Rp 4.500.000'),
+                        child: const SummaryRowWidget(label: 'VIP Standing x 2', value: 'Rp 4.5M'),
                       ),
                       wrapWithModel(model: _model.summaryRowModel2, updateCallback: () => safeSetState(() {}),
-                        child: const SummaryRowWidget(label: 'Service Fee', value: 'Rp 125.000'),
+                        child: const SummaryRowWidget(label: 'Service Fee', value: 'Rp 125k'),
                       ),
                       wrapWithModel(model: _model.summaryRowModel3, updateCallback: () => safeSetState(() {}),
-                        child: const SummaryRowWidget(label: 'Tax (VAT)', value: 'Rp 80.000'),
+                        child: const SummaryRowWidget(label: 'Tax (VAT)', value: 'Rp 80k'),
                       ),
                       Divider(height: 16, thickness: 1, color: theme.alternate),
                       Padding(
@@ -256,7 +256,7 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                                 fontWeight: FontWeight.bold, lineHeight: 1.3,
                               ),
                             ),
-                            Text('Rp 4.705.000',
+                            Text('Rp 4.7M',
                               style: theme.titleMedium.override(
                                 font: GoogleFonts.urbanist(fontWeight: FontWeight.w800),
                                 color: theme.primary, letterSpacing: 0.0,
@@ -293,7 +293,7 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
           wrapWithModel(model: _model.paymentCardModel1,
             updateCallback: () => safeSetState(() {}),
             child: PaymentCardWidget(
-              detail: 'Saldo: Rp 12.400.000',
+              detail: 'Saldo: Rp 12.4M',
               icon: Icon(Icons.account_balance_wallet_rounded, color: theme.primaryText, size: 24),
               name: 'Vibe Wallet', selected: true,
             ),
@@ -410,7 +410,7 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text('Total', style: GoogleFonts.urbanist(fontSize: 12, color: theme.secondaryText)),
-                        Text('Rp 4.705.000',
+                        Text('Rp 4.7M',
                           style: GoogleFonts.poppins(fontSize: 20, fontWeight: FontWeight.w800, color: theme.primaryText),
                         ),
                       ],

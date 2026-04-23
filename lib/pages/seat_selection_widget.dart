@@ -384,7 +384,7 @@ class _SeatSelectionWidgetState extends State<SeatSelectionWidget> {
                                               ),
                                         ),
                                         Text(
-                                          '15.546.780,00',
+                                          '15.5M',
                                           style: FlutterFlowTheme.of(context)
                                               .titleLarge
                                               .override(
