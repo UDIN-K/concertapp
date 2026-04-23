@@ -25,6 +25,8 @@ class TextFieldWidget extends StatefulWidget {
     this.radius,
     this.variant = 'outlined',
     this.error = false,
+    this.onChanged,
+    this.obscureText = false,
   });
 
   final bool label;
@@ -39,6 +41,8 @@ class TextFieldWidget extends StatefulWidget {
   final double? radius;
   final String variant;
   final bool error;
+  final void Function(String)? onChanged;
+  final bool obscureText;
 
   @override
   State<TextFieldWidget> createState() => _TextFieldWidgetState();
@@ -67,6 +71,8 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
 
     return TextField(
       controller: _controller,
+      onChanged: widget.onChanged,
+      obscureText: widget.obscureText,
       style: GoogleFonts.urbanist(
         fontSize: 14,
         color: theme.primaryText,

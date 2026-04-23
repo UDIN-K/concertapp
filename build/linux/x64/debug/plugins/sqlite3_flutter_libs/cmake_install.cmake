@@ -1,8 +1,8 @@
-# Install script for directory: /home/udin/Documents/concertapp/concert/linux/flutter/ephemeral/.plugin_symlinks/sqlite3_flutter_libs/linux
+# Install script for directory: /home/udin/Documents/concertapp/linux/flutter/ephemeral/.plugin_symlinks/sqlite3_flutter_libs/linux
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/udin/Documents/concertapp/concert/build/linux/x64/debug/bundle")
+  set(CMAKE_INSTALL_PREFIX "/home/udin/Documents/concertapp/build/linux/x64/debug/bundle")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -45,6 +45,6 @@ endif()
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/home/udin/Documents/concertapp/concert/build/linux/x64/debug/plugins/sqlite3_flutter_libs/install_local_manifest.txt"
+  file(WRITE "/home/udin/Documents/concertapp/build/linux/x64/debug/plugins/sqlite3_flutter_libs/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

@@ -168,7 +168,7 @@ class SearchMovieVariables {
     return json;
   }
 
-  const SearchMovieVariables({
+  SearchMovieVariables({
     required this.titleInput,
     required this.genre,
   });
