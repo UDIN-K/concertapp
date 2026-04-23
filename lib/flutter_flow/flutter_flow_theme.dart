@@ -34,6 +34,9 @@ class FlutterFlowTheme {
   Color get primary50 => const Color(0xFF6C5CE7).withValues(alpha: 0.5);
   Color get primaryText80 => const Color(0xFFFFFFFF).withValues(alpha: 0.8);
   Color get surface40 => const Color(0xFF161630).withValues(alpha: 0.4);
+  Color get onSurface => const Color(0xFFB0B0CC);
+  Color get divider20 => const Color(0xFFFFFFFF).withValues(alpha: 0.12);
+  Color get onError => const Color(0xFFFFFFFF);
 
   // Text styles
   TextStyle get displayLarge => GoogleFonts.outfit(

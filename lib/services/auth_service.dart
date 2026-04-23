@@ -44,7 +44,16 @@ class AuthService {
       final provider = GoogleAuthProvider()
         ..addScope('email')
         ..setCustomParameters({'prompt': 'select_account'});
-      return _auth.signInWithPopup(provider);
+      try {
+        return await _auth.signInWithPopup(provider);
+      } on FirebaseAuthException catch (e) {
+        if (e.code == 'popup-blocked' ||
+            e.code == 'cancelled-popup-request') {
+          await _auth.signInWithRedirect(provider);
+          return null;
+        }
+        rethrow;
+      }
     }
 
     final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();

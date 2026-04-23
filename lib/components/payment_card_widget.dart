@@ -14,12 +14,17 @@ class PaymentCardWidget extends StatefulWidget {
   const PaymentCardWidget({
     super.key,
     required this.icon,
-    required this.label,
+    required this.name,
+    this.detail,
+    this.label,
     this.selected = false,
   });
 
   final Widget icon;
-  final String label;
+  final String name;
+  final String? detail;
+  /// Legacy parameter — falls back to [name] if used alone.
+  final String? label;
   final bool selected;
 
   @override
@@ -30,6 +35,8 @@ class _PaymentCardWidgetState extends State<PaymentCardWidget> {
   @override
   Widget build(BuildContext context) {
     final theme = FlutterFlowTheme.of(context);
+    final displayName = widget.name.isNotEmpty ? widget.name : (widget.label ?? '');
+
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -45,13 +52,28 @@ class _PaymentCardWidgetState extends State<PaymentCardWidget> {
           widget.icon,
           const SizedBox(width: 12),
           Expanded(
-            child: Text(
-              widget.label,
-              style: GoogleFonts.poppins(
-                fontSize: 14,
-                fontWeight: FontWeight.w600,
-                color: theme.primaryText,
-              ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  displayName,
+                  style: GoogleFonts.poppins(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                    color: theme.primaryText,
+                  ),
+                ),
+                if (widget.detail != null && widget.detail!.isNotEmpty)
+                  Text(
+                    widget.detail!,
+                    style: GoogleFonts.urbanist(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                      color: theme.secondaryText,
+                    ),
+                  ),
+              ],
             ),
           ),
           if (widget.selected)

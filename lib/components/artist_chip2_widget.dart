@@ -15,10 +15,13 @@ class ArtistChip2Widget extends StatefulWidget {
   const ArtistChip2Widget({
     super.key,
     required this.name,
-    required this.img_url,
+    this.img = '',
+    this.img_url = '',
   });
 
   final String name;
+  final String img;
+  /// Legacy parameter — falls back to [img] if empty.
   final String img_url;
 
   @override
@@ -29,12 +32,12 @@ class _ArtistChip2WidgetState extends State<ArtistChip2Widget> {
   @override
   Widget build(BuildContext context) {
     final theme = FlutterFlowTheme.of(context);
+    final imageUrl = widget.img.isNotEmpty ? widget.img : widget.img_url;
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
-          width: 56,
-          height: 56,
+          width: 56, height: 56,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             border: Border.all(color: theme.primary, width: 2),
@@ -44,19 +47,16 @@ class _ArtistChip2WidgetState extends State<ArtistChip2Widget> {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(9999),
               child: CachedNetworkImage(
-                imageUrl: widget.img_url,
-                fit: BoxFit.cover,
+                imageUrl: imageUrl, fit: BoxFit.cover,
+                fadeInDuration: Duration.zero, fadeOutDuration: Duration.zero,
               ),
             ),
           ),
         ),
         const SizedBox(height: 6),
-        Text(
-          widget.name,
+        Text(widget.name,
           style: GoogleFonts.urbanist(
-            fontSize: 11,
-            fontWeight: FontWeight.w600,
-            color: theme.secondaryText,
+            fontSize: 11, fontWeight: FontWeight.w600, color: theme.secondaryText,
           ),
         ),
       ],

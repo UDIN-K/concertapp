@@ -83,3 +83,47 @@ I0424 00:50:52.575915   41608 dev.go:104] Listening on address (HTTP + gRPC): 12
 [debug] [2026-04-23T17:50:56.618Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
 [info] [Firebase Plugin] Stopping SQL Connect toolkit
 [warn] ⚠  SQL Connect Emulator has exited upon receiving signal: SIGINT 
+[debug] [2026-04-23T19:39:02.982Z] [Firebase Plugin] Activating Firebase extension.
+[info] [Firebase Plugin] Checked firebase-tools, is up to date!
+[debug] [2026-04-23T19:39:06.312Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2026-04-23T19:39:06.314Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-04-23T19:39:06.315Z] > authorizing via signed-in user (safrisam.gaming455@gmail.com)
+[debug] [2026-04-23T19:39:06.323Z] Checked if tokens are valid: false, expires at: 1776972956885
+[debug] [2026-04-23T19:39:06.324Z] Checked if tokens are valid: false, expires at: 1776972956885
+[debug] [2026-04-23T19:39:06.325Z] > refreshing access token with scopes: []
+[debug] [2026-04-23T19:39:06.328Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-04-23T19:39:06.329Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-04-23T19:39:06.347Z] [Firebase Plugin] VSCode notification server listening on port 40001
+[debug] [2026-04-23T19:39:07.180Z] Object "" in "firebase.json" has unknown property: {"additionalProperty":"flutter"}
+[info] [Firebase Plugin] Starting SQL Connect toolkit (version 3.4.5) on port 50001
+[debug] [2026-04-23T19:39:07.371Z] I0424 02:39:07.352295   94201 control.go:100] [projects/emulator/locations/emulator/services/concert a7f6] UpdateResources(): done
+Main schema: sources: schema/schema.gql [1992B] 
+Connector "example": sources: example/mutations.gql [1243B] example/queries.gql [1801B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0424 02:39:07.352295   94201 control.go:100] [projects/emulator/locations/emulator/services/concert a7f6] UpdateResources(): done\nMain schema: sources: schema/schema.gql [1992B] \nConnector \"example\": sources: example/mutations.gql [1243B] example/queries.gql [1801B] \n"}}
+[debug] [2026-04-23T19:39:07.373Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2026-04-23T19:39:07.375Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"dataconnect"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2026-04-23T19:39:07.376Z] Starting SQL Connect Emulator with command {"binary":"/home/udin/.cache/firebase/emulators/dataconnect-emulator-3.4.5","args":["--logtostderr","-v=2","dev","--listen=localhost:50001","--config_dir=/home/udin/Documents/concertapp/dataconnect","--enable_output_schema_extensions=true","--enable_output_generated_sdk=true"],"optionalArgs":["listen","config_dir","enable_output_schema_extensions","enable_output_generated_sdk"],"joinArgs":true,"shell":false,"port":9399} {"metadata":{"emulator":{"name":"dataconnect"},"message":"Starting SQL Connect Emulator with command {\"binary\":\"/home/udin/.cache/firebase/emulators/dataconnect-emulator-3.4.5\",\"args\":[\"--logtostderr\",\"-v=2\",\"dev\",\"--listen=localhost:50001\",\"--config_dir=/home/udin/Documents/concertapp/dataconnect\",\"--enable_output_schema_extensions=true\",\"--enable_output_generated_sdk=true\"],\"optionalArgs\":[\"listen\",\"config_dir\",\"enable_output_schema_extensions\",\"enable_output_generated_sdk\"],\"joinArgs\":true,\"shell\":false,\"port\":9399}"}}
+[info] i  dataconnect: SQL Connect Emulator logging to dataconnect-debug.log {"metadata":{"emulator":{"name":"dataconnect"},"message":"SQL Connect Emulator logging to dataconnect-debug.log"}}
+[debug] [2026-04-23T19:39:07.487Z] I0424 02:39:07.425050   94211 load.go:31] Reloading schema and connectors...
+I0424 02:39:07.457113   94211 control.go:100] [projects/emulator/locations/emulator/services/concert 94b9] UpdateResources(): done
+Main schema: sources: schema/schema.gql [1992B] 
+Connector "example": sources: example/mutations.gql [1243B] example/queries.gql [1801B] 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0424 02:39:07.425050   94211 load.go:31] Reloading schema and connectors...\nI0424 02:39:07.457113   94211 control.go:100] [projects/emulator/locations/emulator/services/concert 94b9] UpdateResources(): done\nMain schema: sources: schema/schema.gql [1992B] \nConnector \"example\": sources: example/mutations.gql [1243B] example/queries.gql [1801B] \n"}}
+[debug] [2026-04-23T19:39:07.532Z] I0424 02:39:07.497862   94211 codegen.go:101] [connector "example" dartSdk] Generating sources into "/home/udin/Documents/concertapp/lib/dataconnect_generated"
+I0424 02:39:07.518926   94211 collector.go:107] schema extensions wrote into "/home/udin/Documents/concertapp/dataconnect/.dataconnect/schema"
+Generated sources: main/input.gql [28927B] main/relation.gql [14318B] main/query.gql [5099B] main/mutation.gql [13679B] main/implicit.gql [1261B] prelude.gql [82799B] 
+I0424 02:39:07.522799   94211 collector.go:107] connector "example" dartSdk wrote into "/home/udin/Documents/concertapp/lib/dataconnect_generated"
+Generated sources: list_movies.dart [2718B] list_users.dart [2236B] search_movie.dart [4743B] create_movie.dart [3598B] upsert_user.dart [3044B] generated.dart [2458B] README.md [11557B] .guides/setup.md [756B] list_user_reviews.dart [5172B] get_movie_by_id.dart [8364B] add_review.dart [3874B] delete_review.dart [3463B] .guides/usage.md [1181B] .guides/config.json [236B] 
+I0424 02:39:07.522945   94211 load.go:109] Finished reloading
+I0424 02:39:07.525496   94211 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:50001
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0424 02:39:07.497862   94211 codegen.go:101] [connector \"example\" dartSdk] Generating sources into \"/home/udin/Documents/concertapp/lib/dataconnect_generated\"\nI0424 02:39:07.518926   94211 collector.go:107] schema extensions wrote into \"/home/udin/Documents/concertapp/dataconnect/.dataconnect/schema\"\nGenerated sources: main/input.gql [28927B] main/relation.gql [14318B] main/query.gql [5099B] main/mutation.gql [13679B] main/implicit.gql [1261B] prelude.gql [82799B] \nI0424 02:39:07.522799   94211 collector.go:107] connector \"example\" dartSdk wrote into \"/home/udin/Documents/concertapp/lib/dataconnect_generated\"\nGenerated sources: list_movies.dart [2718B] list_users.dart [2236B] search_movie.dart [4743B] create_movie.dart [3598B] upsert_user.dart [3044B] generated.dart [2458B] README.md [11557B] .guides/setup.md [756B] list_user_reviews.dart [5172B] get_movie_by_id.dart [8364B] add_review.dart [3874B] delete_review.dart [3463B] .guides/usage.md [1181B] .guides/config.json [236B] \nI0424 02:39:07.522945   94211 load.go:109] Finished reloading\nI0424 02:39:07.525496   94211 dev.go:104] Listening on address (HTTP + gRPC): 127.0.0.1:50001\n"}}
+[debug] [2026-04-23T19:39:07.919Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-04-23T19:39:07.922Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-04-23T19:39:07.941Z] [Firebase Plugin] User found:  safrisam.gaming455@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2026-04-23T19:39:07.946Z] Checked if tokens are valid: true, expires at: 1776976746925
+[debug] [2026-04-23T19:39:07.948Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2026-04-23T19:39:08.003Z] I0424 02:39:07.977849   94211 engine.go:209] [projects/emulator/locations/emulator/services/concert 94b9] ExecuteGraphqlRead query IntrospectionQuery: succeeded. 
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"I0424 02:39:07.977849   94211 engine.go:209] [projects/emulator/locations/emulator/services/concert 94b9] ExecuteGraphqlRead query IntrospectionQuery: succeeded. \n"}}
+[debug] [2026-04-23T19:39:08.921Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2026-04-23T19:39:08.924Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]

@@ -14,12 +14,17 @@ class MenuItemWidget extends StatefulWidget {
   const MenuItemWidget({
     super.key,
     required this.icon,
-    required this.label,
+    this.title = '',
+    this.label = '',
+    this.color,
     this.trailing,
   });
 
   final Widget icon;
+  final String title;
+  /// Legacy parameter — falls back to [title].
   final String label;
+  final Color? color;
   final Widget? trailing;
 
   @override
@@ -30,6 +35,9 @@ class _MenuItemWidgetState extends State<MenuItemWidget> {
   @override
   Widget build(BuildContext context) {
     final theme = FlutterFlowTheme.of(context);
+    final displayLabel = widget.title.isNotEmpty ? widget.title : widget.label;
+    final bgColor = widget.color?.withValues(alpha: 0.12) ?? theme.secondaryBackground;
+
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 12),
       child: Row(
@@ -37,19 +45,16 @@ class _MenuItemWidgetState extends State<MenuItemWidget> {
           Container(
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: theme.secondaryBackground,
+              color: bgColor,
               borderRadius: BorderRadius.circular(12),
             ),
             child: widget.icon,
           ),
           const SizedBox(width: 16),
           Expanded(
-            child: Text(
-              widget.label,
+            child: Text(displayLabel,
               style: GoogleFonts.poppins(
-                fontSize: 14,
-                fontWeight: FontWeight.w600,
-                color: theme.primaryText,
+                fontSize: 14, fontWeight: FontWeight.w600, color: theme.primaryText,
               ),
             ),
           ),

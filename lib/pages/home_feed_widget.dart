@@ -6,9 +6,16 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import 'home_feed_model.dart';
+export 'home_feed_model.dart';
 
 class HomeFeedWidget extends StatefulWidget {
   const HomeFeedWidget({super.key});
+
+  static String routeName = 'HomeFeed';
+  static String routePath = '/homeFeed';
 
   @override
   State<HomeFeedWidget> createState() => _HomeFeedWidgetState();
@@ -32,195 +39,408 @@ class _HomeFeedWidgetState extends State<HomeFeedWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = FlutterFlowTheme.of(context);
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: theme.primaryBackground,
-      body: SafeArea(
-        child: SingleChildScrollView(
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        body: SingleChildScrollView(
+          primary: false,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(24),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Welcome back,', style: theme.bodyMedium),
-                        Text('Alex Rivera', style: theme.headlineLarge),
-                      ],
-                    ),
-                    Container(
-                      width: 48,
-                      height: 48,
-                      decoration: BoxDecoration(
-                        color: theme.secondaryBackground,
-                        shape: BoxShape.circle,
-                        border: Border.all(color: theme.alternate),
+              SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.all(24),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Column(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Find your vibe,',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  font: GoogleFonts.urbanist(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
+                                  lineHeight: 1.45,
+                                ),
+                          ),
+                          Text(
+                            'Hey, Alex!',
+                            style: FlutterFlowTheme.of(context)
+                                .titleLarge
+                                .override(
+                                  font: GoogleFonts.poppins(
+                                    fontWeight: FontWeight.w800,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleLarge
+                                        .fontStyle,
+                                  ),
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w800,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleLarge
+                                      .fontStyle,
+                                  lineHeight: 1.25,
+                                ),
+                          ),
+                        ].divide(const SizedBox(height: 4)),
                       ),
-                      child: Icon(Icons.notifications_none_rounded, color: theme.primaryText),
-                    ),
-                  ],
+                      Container(
+                        width: 48,
+                        height: 48,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          borderRadius: BorderRadius.circular(9999),
+                          shape: BoxShape.rectangle,
+                          border: Border.all(
+                            color: FlutterFlowTheme.of(context).alternate,
+                            width: 1,
+                          ),
+                        ),
+                        alignment: const AlignmentDirectional(0, 0),
+                        child: Icon(
+                          Icons.person_rounded,
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          size: 24,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24),
-                child: TextFieldWidget(
-                  hint: 'Search concerts, artists...',
-                  variant: 'filled',
-                  leading_icon_present: true,
-                  leading_icon: Icon(Icons.search_rounded, color: theme.secondaryText, size: 20),
+                padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 16),
+                child: wrapWithModel(
+                  model: _model.textFieldModel,
+                  updateCallback: () => safeSetState(() {}),
+                  child: TextFieldWidget(
+                    label: false,
+                    helper: false,
+                    hint: 'Search artists, venues, or cities',
+                    value: '',
+                    leading_icon: Icon(
+                      Icons.search_rounded,
+                      color: FlutterFlowTheme.of(context).primaryText,
+                      size: 16,
+                    ),
+                    leading_icon_present: true,
+                    trailing_icon_present: false,
+                    bg: FlutterFlowTheme.of(context).secondaryBackground,
+                    radius: 24.0,
+                    variant: 'filled',
+                    error: false,
+                  ),
                 ),
               ),
-              const SizedBox(height: 24),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
-                padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const CategoryChipWidget(icon: Icon(Icons.apps_rounded, size: 16, color: Colors.white), label: 'All', selected: true),
-                    const SizedBox(width: 12),
-                    CategoryChipWidget(icon: Icon(Icons.music_note_rounded, size: 16, color: theme.primary), label: 'Pop'),
-                    const SizedBox(width: 12),
-                    CategoryChipWidget(icon: Icon(Icons.flash_on_rounded, size: 16, color: theme.primary), label: 'Rock'),
-                    const SizedBox(width: 12),
-                    CategoryChipWidget(icon: Icon(Icons.nightlife_rounded, size: 16, color: theme.primary), label: 'EDM'),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 32),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('Featured Events', style: theme.titleLarge),
-                    Text('See All', style: theme.bodyMedium.override(color: theme.primary, fontWeight: FontWeight.w600)),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 16),
-              const SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                padding: EdgeInsets.symmetric(horizontal: 24),
-                child: Row(
-                  children: [
-                    FeaturedCardWidget(
-                      title: 'Coldplay: Music of the Spheres',
-                      date: 'Nov 15, 2026 • GBK Stadium',
-                      tag: 'BEST SELLER',
-                      img_desc: 'https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=800',
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 16),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          wrapWithModel(
+                            model: _model.categoryChipModel1,
+                            updateCallback: () => safeSetState(() {}),
+                            child: CategoryChipWidget(
+                              icon: Icon(
+                                Icons.confirmation_number_rounded,
+                                color: FlutterFlowTheme.of(context).onPrimary,
+                                size: 18,
+                              ),
+                              label: 'All Events',
+                              selected: true,
+                            ),
+                          ),
+                          wrapWithModel(
+                            model: _model.categoryChipModel2,
+                            updateCallback: () => safeSetState(() {}),
+                            child: CategoryChipWidget(
+                              icon: Icon(
+                                Icons.electric_bolt_rounded,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                size: 18,
+                              ),
+                              label: 'Rock',
+                              selected: false,
+                            ),
+                          ),
+                          wrapWithModel(
+                            model: _model.categoryChipModel3,
+                            updateCallback: () => safeSetState(() {}),
+                            child: CategoryChipWidget(
+                              icon: Icon(
+                                Icons.favorite_rounded,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                size: 18,
+                              ),
+                              label: 'Pop',
+                              selected: false,
+                            ),
+                          ),
+                          wrapWithModel(
+                            model: _model.categoryChipModel4,
+                            updateCallback: () => safeSetState(() {}),
+                            child: CategoryChipWidget(
+                              icon: Icon(
+                                Icons.piano_rounded,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                size: 18,
+                              ),
+                              label: 'Jazz',
+                              selected: false,
+                            ),
+                          ),
+                          wrapWithModel(
+                            model: _model.categoryChipModel5,
+                            updateCallback: () => safeSetState(() {}),
+                            child: CategoryChipWidget(
+                              icon: Icon(
+                                Icons.graphic_eq_rounded,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                size: 18,
+                              ),
+                              label: 'EDM',
+                              selected: false,
+                            ),
+                          ),
+                        ].divide(const SizedBox(width: 16)),
+                      ),
                     ),
-                    SizedBox(width: 16),
-                    FeaturedCardWidget(
-                      title: 'The Weeknd: After Hours',
-                      date: 'Dec 02, 2026 • JIS Jakarta',
-                      tag: 'TRENDING',
-                      img_desc: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800',
-                    ),
                   ],
                 ),
               ),
-              const SizedBox(height: 32),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24),
-                child: Text('Upcoming Near You', style: theme.titleLarge),
-              ),
-              const SizedBox(height: 16),
-              ListView(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                padding: const EdgeInsets.symmetric(horizontal: 24),
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  const EventItemWidget(
-                    title: 'Lauv: Between Albums',
-                    location: 'Beach City Stadium',
-                    price: 'Rp 1.200.000',
-                    img_desc: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800',
+                  Padding(
+                    padding: const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Featured Events',
+                          style: FlutterFlowTheme.of(context)
+                              .titleLarge
+                              .override(
+                                font: GoogleFonts.poppins(
+                                  fontWeight: FontWeight.w800,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleLarge
+                                      .fontStyle,
+                                ),
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w800,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .titleLarge
+                                    .fontStyle,
+                                lineHeight: 1.25,
+                              ),
+                        ),
+                        Text(
+                          'See All',
+                          style: FlutterFlowTheme.of(context)
+                              .labelLarge
+                              .override(
+                                font: GoogleFonts.poppins(
+                                  fontWeight: FontWeight.w600,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .labelLarge
+                                      .fontStyle,
+                                ),
+                                color: FlutterFlowTheme.of(context).primary,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w600,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .labelLarge
+                                    .fontStyle,
+                                lineHeight: 1.3,
+                              ),
+                        ),
+                      ],
+                    ),
                   ),
-                  const SizedBox(height: 12),
-                  const EventItemWidget(
-                    title: 'Bruno Mars Live',
-                    location: 'Jakarta Intl Stadium',
-                    price: 'Rp 2.500.000',
-                    img_desc: 'https://images.unsplash.com/photo-1514525253361-bee8d48700ef?w=800',
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding:
+                              const EdgeInsetsDirectional.fromSTEB(24, 0, 24, 24),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              wrapWithModel(
+                                model: _model.featuredCardModel1,
+                                updateCallback: () => safeSetState(() {}),
+                                child: const FeaturedCardWidget(
+                                  date: 'Oct 24 - Madison Square Garden',
+                                  img_desc:
+                                      'https://dimg.dreamflow.cloud/v1/image/cyberpunk%20concert%20stage%20purple%20lights',
+                                  tag: 'TRENDING',
+                                  title: 'Midnight Neon Tour',
+                                ),
+                              ),
+                              wrapWithModel(
+                                model: _model.featuredCardModel2,
+                                updateCallback: () => safeSetState(() {}),
+                                child: const FeaturedCardWidget(
+                                  date: 'Nov 02 - Red Rocks Amphitheatre',
+                                  img_desc:
+                                      'https://dimg.dreamflow.cloud/v1/image/acoustic%20singer%20on%20stage%20outdoor%20forest',
+                                  tag: 'SELLING FAST',
+                                  title: 'Acoustic Forest Sessions',
+                                ),
+                              ),
+                              wrapWithModel(
+                                model: _model.featuredCardModel3,
+                                updateCallback: () => safeSetState(() {}),
+                                child: const FeaturedCardWidget(
+                                  date: 'Dec 15 - Warehouse 7',
+                                  img_desc:
+                                      'https://dimg.dreamflow.cloud/v1/image/dark%20techno%20club%20laser%20lights',
+                                  tag: 'NEW',
+                                  title: 'Techno Pulse 2024',
+                                ),
+                              ),
+                            ].divide(const SizedBox(width: 24)),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ].divide(const SizedBox(height: 12)),
+                ].divide(const SizedBox(height: 16)),
               ),
-              const SizedBox(height: 100),
+              Padding(
+                padding: const EdgeInsets.all(24),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      'Upcoming Near You',
+                      style: FlutterFlowTheme.of(context).titleLarge.override(
+                            font: GoogleFonts.poppins(
+                              fontWeight: FontWeight.w800,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .titleLarge
+                                  .fontStyle,
+                            ),
+                            color: FlutterFlowTheme.of(context).primaryText,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.w800,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .titleLarge
+                                .fontStyle,
+                            lineHeight: 1.25,
+                          ),
+                    ),
+                    wrapWithModel(
+                      model: _model.eventItemModel1,
+                      updateCallback: () => safeSetState(() {}),
+                      child: const EventItemWidget(
+                        img_desc:
+                            'https://dimg.dreamflow.cloud/v1/image/jazz%20band%20performing',
+                        location: 'Blue Note Club',
+                        price: 'From \$45',
+                        title: 'The Midnight Echoes',
+                      ),
+                    ),
+                    wrapWithModel(
+                      model: _model.eventItemModel2,
+                      updateCallback: () => safeSetState(() {}),
+                      child: const EventItemWidget(
+                        img_desc:
+                            'https://dimg.dreamflow.cloud/v1/image/edm%20festival%20crowd',
+                        location: 'Stadium Arena',
+                        price: 'From \$89',
+                        title: 'Electric Dreamland',
+                      ),
+                    ),
+                    wrapWithModel(
+                      model: _model.eventItemModel3,
+                      updateCallback: () => safeSetState(() {}),
+                      child: const EventItemWidget(
+                        img_desc:
+                            'https://dimg.dreamflow.cloud/v1/image/choir%20performance',
+                        location: 'The Grand Hall',
+                        price: 'From \$60',
+                        title: 'Vocal Harmony Night',
+                      ),
+                    ),
+                    wrapWithModel(
+                      model: _model.eventItemModel4,
+                      updateCallback: () => safeSetState(() {}),
+                      child: const EventItemWidget(
+                        img_desc:
+                            'https://dimg.dreamflow.cloud/v1/image/soul%20singer%20microphone',
+                        location: 'Soul Lounge',
+                        price: 'From \$55',
+                        title: 'Rhythm & Blues Gala',
+                      ),
+                    ),
+                  ].divide(const SizedBox(height: 16)),
+                ),
+              ),
+              const SizedBox(height: 32),
             ],
           ),
         ),
       ),
     );
-  }
-}
-
-
-class HomeFeedModel extends FlutterFlowModel<HomeFeedWidget> {
-  ///  State fields for stateful widgets in this page.
-
-  // Model for TextField.
-  late TextFieldModel textFieldModel;
-  // Model for CategoryChip.
-  late CategoryChipModel categoryChipModel1;
-  // Model for CategoryChip.
-  late CategoryChipModel categoryChipModel2;
-  // Model for CategoryChip.
-  late CategoryChipModel categoryChipModel3;
-  // Model for CategoryChip.
-  late CategoryChipModel categoryChipModel4;
-  // Model for CategoryChip.
-  late CategoryChipModel categoryChipModel5;
-  // Model for FeaturedCard.
-  late FeaturedCardModel featuredCardModel1;
-  // Model for FeaturedCard.
-  late FeaturedCardModel featuredCardModel2;
-  // Model for FeaturedCard.
-  late FeaturedCardModel featuredCardModel3;
-  // Model for EventItem.
-  late EventItemModel eventItemModel1;
-  // Model for EventItem.
-  late EventItemModel eventItemModel2;
-  // Model for EventItem.
-  late EventItemModel eventItemModel3;
-  // Model for EventItem.
-  late EventItemModel eventItemModel4;
-
-  @override
-  void initState(BuildContext context) {
-    textFieldModel = createModel(context, () => TextFieldModel());
-    categoryChipModel1 = createModel(context, () => CategoryChipModel());
-    categoryChipModel2 = createModel(context, () => CategoryChipModel());
-    categoryChipModel3 = createModel(context, () => CategoryChipModel());
-    categoryChipModel4 = createModel(context, () => CategoryChipModel());
-    categoryChipModel5 = createModel(context, () => CategoryChipModel());
-    featuredCardModel1 = createModel(context, () => FeaturedCardModel());
-    featuredCardModel2 = createModel(context, () => FeaturedCardModel());
-    featuredCardModel3 = createModel(context, () => FeaturedCardModel());
-    eventItemModel1 = createModel(context, () => EventItemModel());
-    eventItemModel2 = createModel(context, () => EventItemModel());
-    eventItemModel3 = createModel(context, () => EventItemModel());
-    eventItemModel4 = createModel(context, () => EventItemModel());
-  }
-
-  @override
-  void dispose() {
-    textFieldModel.dispose();
-    categoryChipModel1.dispose();
-    categoryChipModel2.dispose();
-    categoryChipModel3.dispose();
-    categoryChipModel4.dispose();
-    categoryChipModel5.dispose();
-    featuredCardModel1.dispose();
-    featuredCardModel2.dispose();
-    featuredCardModel3.dispose();
-    eventItemModel1.dispose();
-    eventItemModel2.dispose();
-    eventItemModel3.dispose();
-    eventItemModel4.dispose();
   }
 }

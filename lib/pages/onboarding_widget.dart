@@ -5,9 +5,16 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:material_palette/material_palette.dart';
+
+import 'onboarding_model.dart';
+export 'onboarding_model.dart';
 
 class OnboardingWidget extends StatefulWidget {
   const OnboardingWidget({super.key});
+
+  static String routeName = 'Onboarding';
+  static String routePath = '/onboarding';
 
   @override
   State<OnboardingWidget> createState() => _OnboardingWidgetState();
@@ -31,84 +38,257 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = FlutterFlowTheme.of(context);
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: theme.primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: Stack(
+          alignment: const AlignmentDirectional(-1, -1),
           children: [
-            // Background Gradient
-            Container(
-              width: double.infinity,
-              height: double.infinity,
-              decoration: BoxDecoration(
-                gradient: RadialGradient(
-                  center: const Alignment(0, -0.6),
-                  radius: 1.2,
-                  colors: [
-                    theme.primary.withValues(alpha: 0.3),
-                    theme.primaryBackground,
-                  ],
-                ),
-              ),
+            LayoutBuilder(
+              builder: (context, constraints) {
+                return FbmGradientShaderFill(
+                  width: constraints.maxWidth.isFinite
+                      ? constraints.maxWidth
+                      : 200.0,
+                  height: constraints.maxHeight.isFinite
+                      ? constraints.maxHeight
+                      : MediaQuery.sizeOf(context).height,
+                  params: ShaderParams(
+                    values: {
+                      'gradientAngle': 145,
+                      'gradientScale': 0.89,
+                      'gradientOffset': 0,
+                      'noiseIntensity': 0.32,
+                      'ditherStrength': 2.51,
+                      'ditherScale': 0.29,
+                      'animSpeed': 1.46,
+                      'octaves': 6.06,
+                      'lacunarity': 2.35,
+                      'persistence': 0.5,
+                      'noiseScale': 6.36,
+                      'colorCount': 7,
+                      'softness': 0,
+                      'exposure': 1,
+                      'contrast': 1,
+                      'bumpStrength': 0,
+                      'lightDirX': 0.55,
+                      'lightDirY': 0.45,
+                      'lightDirZ': 1,
+                      'lightIntensity': 1.15,
+                      'ambient': 0.7,
+                      'specular': 0.29,
+                      'shininess': 40.76,
+                      'metallic': 1,
+                      'roughness': 1,
+                      'edgeFade': 1.72,
+                      'edgeFadeMode': 0,
+                      'sharpness': 2.2,
+                    },
+                    colors: {
+                      'color0': FlutterFlowTheme.of(context).primaryBackground,
+                      'color1': FlutterFlowTheme.of(context).primaryBackground,
+                      'color2': FlutterFlowTheme.of(context).primary,
+                      'color3': FlutterFlowTheme.of(context).primaryBackground,
+                      'color4': const Color(0xFF1A1A2E),
+                      'color5': FlutterFlowTheme.of(context).primaryBackground,
+                      'color6': Colors.black,
+                      'color7': const Color(0x00808080),
+                      'color8': const Color(0x00808080),
+                      'color9': const Color(0x00808080),
+                    },
+                  ),
+                  animationMode: ShaderAnimationMode.continuous,
+                  cache: false,
+                );
+              },
             ),
-            SafeArea(
+            const SizedBox.shrink(),
+            Align(
+              alignment: const AlignmentDirectional(0, 1),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24),
+                padding: const EdgeInsets.all(32),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    const Spacer(flex: 3),
-                    Wrap(
-                      spacing: 12,
-                      runSpacing: 12,
-                      alignment: WrapAlignment.center,
+                    Align(
+                      alignment: const AlignmentDirectional(0, 0),
+                      child: Wrap(
+                        spacing: 16,
+                        runSpacing: 16,
+                        alignment: WrapAlignment.center,
+                        crossAxisAlignment: WrapCrossAlignment.start,
+                        direction: Axis.horizontal,
+                        runAlignment: WrapAlignment.start,
+                        verticalDirection: VerticalDirection.down,
+                        clipBehavior: Clip.none,
+                        children: [
+                          wrapWithModel(
+                            model: _model.featureTagModel1,
+                            updateCallback: () => safeSetState(() {}),
+                            child: FeatureTagWidget(
+                              icon: Icon(
+                                Icons.local_activity_rounded,
+                                color: FlutterFlowTheme.of(context).tertiary,
+                                size: 16,
+                              ),
+                              label: 'Exclusive Access',
+                            ),
+                          ),
+                          wrapWithModel(
+                            model: _model.featureTagModel2,
+                            updateCallback: () => safeSetState(() {}),
+                            child: FeatureTagWidget(
+                              icon: Icon(
+                                Icons.confirmation_number_rounded,
+                                color: FlutterFlowTheme.of(context).tertiary,
+                                size: 16,
+                              ),
+                              label: 'Fast Entry',
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        FeatureTagWidget(
-                          icon: Icon(Icons.local_activity_rounded, color: theme.tertiary, size: 16),
-                          label: 'Exclusive Access',
+                        Text(
+                          'Feel the Beat,\nLive the Vibe',
+                          textAlign: TextAlign.center,
+                          style: FlutterFlowTheme.of(context)
+                              .headlineLarge
+                              .override(
+                                font: GoogleFonts.poppins(
+                                  fontWeight: FontWeight.w900,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .headlineLarge
+                                      .fontStyle,
+                                ),
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w900,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .headlineLarge
+                                    .fontStyle,
+                                lineHeight: 1.1,
+                              ),
                         ),
-                        FeatureTagWidget(
-                          icon: Icon(Icons.confirmation_number_rounded, color: theme.tertiary, size: 16),
-                          label: 'Fast Entry',
+                        Text(
+                          'Your all-access pass to the world\'s most electric concerts and festivals.',
+                          textAlign: TextAlign.center,
+                          maxLines: 2,
+                          style: FlutterFlowTheme.of(context)
+                              .bodyLarge
+                              .override(
+                                font: GoogleFonts.urbanist(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyLarge
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyLarge
+                                      .fontStyle,
+                                ),
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .bodyLarge
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyLarge
+                                    .fontStyle,
+                                lineHeight: 1.5,
+                              ),
                         ),
-                      ],
+                      ].divide(const SizedBox(height: 16)),
                     ),
-                    const SizedBox(height: 32),
-                    Text(
-                      'Feel the Beat,\nLive the Vibe',
-                      textAlign: TextAlign.center,
-                      style: theme.displayLarge.override(
-                        font: GoogleFonts.poppins(fontWeight: FontWeight.w900),
-                        lineHeight: 1.1,
-                      ),
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 24,
+                          height: 8,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context).tertiary,
+                            borderRadius: BorderRadius.circular(9999),
+                            shape: BoxShape.rectangle,
+                          ),
+                        ),
+                        Container(
+                          width: 8,
+                          height: 8,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            borderRadius: BorderRadius.circular(9999),
+                            shape: BoxShape.rectangle,
+                          ),
+                        ),
+                        Container(
+                          width: 8,
+                          height: 8,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            borderRadius: BorderRadius.circular(9999),
+                            shape: BoxShape.rectangle,
+                          ),
+                        ),
+                      ].divide(const SizedBox(width: 8)),
                     ),
-                    const SizedBox(height: 16),
-                    Text(
-                      'Your all-access pass to the world\'s most electric concerts and festivals.',
-                      textAlign: TextAlign.center,
-                      style: theme.bodyLarge.override(
-                        font: GoogleFonts.urbanist(),
-                        color: theme.secondaryText,
-                      ),
+                    Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        wrapWithModel(
+                          model: _model.buttonModel1,
+                          updateCallback: () => safeSetState(() {}),
+                          child: ButtonWidget(
+                            content: 'Get Started',
+                            icon_present: false,
+                            icon_end_present: false,
+                            variant: 'primary',
+                            size: 'large',
+                            full_width: true,
+                            loading: false,
+                            disabled: false,
+                            onPressed: () => Navigator.pushNamed(context, '/home'),
+                          ),
+                        ),
+                        wrapWithModel(
+                          model: _model.buttonModel2,
+                          updateCallback: () => safeSetState(() {}),
+                          child: ButtonWidget(
+                            content: 'I already have an account',
+                            icon_present: false,
+                            icon_end_present: false,
+                            variant: 'ghost',
+                            size: 'medium',
+                            full_width: true,
+                            loading: false,
+                            disabled: false,
+                            onPressed: () =>
+                                Navigator.pushNamed(context, '/loginSignup'),
+                          ),
+                        ),
+                      ].divide(const SizedBox(height: 16)),
                     ),
-                    const SizedBox(height: 48),
-                    ButtonWidget(
-                      content: 'Get Started',
-                      full_width: true,
-                      onPressed: () => Navigator.pushNamed(context, '/home'),
+                    const SizedBox(
+                      height: 24,
                     ),
-                    const SizedBox(height: 16),
-                    ButtonWidget(
-                      content: 'I already have an account',
-                      variant: 'ghost',
-                      full_width: true,
-                      onPressed: () => Navigator.pushNamed(context, '/loginSignup'),
-                    ),
-                    const SizedBox(height: 32),
-                  ],
+                  ].divide(const SizedBox(height: 24)),
                 ),
               ),
             ),
@@ -116,35 +296,5 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
         ),
       ),
     );
-  }
-}
-
-
-class OnboardingModel extends FlutterFlowModel<OnboardingWidget> {
-  ///  State fields for stateful widgets in this page.
-
-  // Model for FeatureTag.
-  late FeatureTagModel featureTagModel1;
-  // Model for FeatureTag.
-  late FeatureTagModel featureTagModel2;
-  // Model for Button.
-  late ButtonModel buttonModel1;
-  // Model for Button.
-  late ButtonModel buttonModel2;
-
-  @override
-  void initState(BuildContext context) {
-    featureTagModel1 = createModel(context, () => FeatureTagModel());
-    featureTagModel2 = createModel(context, () => FeatureTagModel());
-    buttonModel1 = createModel(context, () => ButtonModel());
-    buttonModel2 = createModel(context, () => ButtonModel());
-  }
-
-  @override
-  void dispose() {
-    featureTagModel1.dispose();
-    featureTagModel2.dispose();
-    buttonModel1.dispose();
-    buttonModel2.dispose();
   }
 }

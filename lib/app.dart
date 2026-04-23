@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'pages/home_page.dart';
 import 'pages/onboarding_widget.dart';
 import 'pages/home_feed_widget.dart';
@@ -15,10 +16,12 @@ class ConcertApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isLoggedIn = FirebaseAuth.instance.currentUser != null;
+
     return MaterialApp(
       title: 'ConcertTix',
       debugShowCheckedModeBanner: false,
-      initialRoute: '/onboarding',
+      initialRoute: isLoggedIn ? '/home' : '/onboarding',
       routes: {
         '/': (context) => const HomePage(),
         '/home': (context) => const HomePage(),

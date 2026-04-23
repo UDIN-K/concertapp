@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/bottom_nav_bar.dart';
 import 'home_feed_widget.dart';
+import 'search_explore_widget.dart';
 import 'my_tickets_widget.dart';
 import 'user_profile_widget.dart';
 
@@ -15,6 +16,7 @@ class _HomePageState extends State<HomePage> {
 
   final List<Widget> _pages = const [
     HomeFeedWidget(),
+    SearchExploreWidget(),
     MyTicketsWidget(),
     UserProfileWidget(),
   ];

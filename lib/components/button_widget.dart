@@ -67,6 +67,11 @@ class _ButtonWidgetState extends State<ButtonWidget> {
         textColor = theme.primaryText;
         border = null;
         break;
+      case 'destructive':
+        bgColor = theme.error;
+        textColor = theme.onPrimary;
+        border = null;
+        break;
       default: // primary
         bgColor = theme.primary;
         textColor = theme.onPrimary;
