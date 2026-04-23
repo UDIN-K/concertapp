@@ -7,7 +7,7 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:468745474276:android:1234567890abcdef",
+        "mobilesdk_app_id": "1:468745474276:android:6dfa1352f84fa397589cf1",
         "android_client_info": {
           "package_name": "com.example.concert"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDummyKeyForDevelopment12345678"
+          "current_key": "AIzaSyCPjQnPSSDab0pHecrSQZVeMMT3kkOdZMw"
         }
       ],
       "services": {

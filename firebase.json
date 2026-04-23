@@ -1,10 +1,1 @@
-{
-  "emulators": {
-    "dataconnect": {
-      "dataDir": "dataconnect/.dataconnect/pgliteData"
-    }
-  },
-  "dataconnect": {
-    "source": "dataconnect"
-  }
-}
+{"emulators":{"dataconnect":{"dataDir":"dataconnect/.dataconnect/pgliteData"}},"dataconnect":{"source":"dataconnect"},"flutter":{"platforms":{"android":{"default":{"projectId":"concertapp-adb78","appId":"1:468745474276:android:6dfa1352f84fa397589cf1","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"concertapp-adb78","configurations":{"android":"1:468745474276:android:6dfa1352f84fa397589cf1","ios":"1:468745474276:ios:5d768d4fa627ea1d589cf1","macos":"1:468745474276:ios:5d768d4fa627ea1d589cf1","web":"1:468745474276:web:1c4885ee9021a47f589cf1","windows":"1:468745474276:web:502f643ee3a4b3b0589cf1"}}}}}}
