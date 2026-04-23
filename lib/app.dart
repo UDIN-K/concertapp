@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'pages/splash_screen_widget.dart';
 import 'pages/home_page.dart';
 import 'pages/onboarding_widget.dart';
 import 'pages/home_feed_widget.dart';
@@ -21,9 +22,20 @@ class ConcertApp extends StatelessWidget {
     return MaterialApp(
       title: 'ConcertTix',
       debugShowCheckedModeBanner: false,
-      initialRoute: isLoggedIn ? '/home' : '/onboarding',
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: const Color(0xFF0A0A0F),
+        canvasColor: const Color(0xFF0A0A0F),
+        pageTransitionsTheme: const PageTransitionsTheme(
+          builders: {
+            TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+            TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+          },
+        ),
+      ),
+      initialRoute: '/splash',
       routes: {
-        '/': (context) => const HomePage(),
+        '/': (context) => const SplashScreenWidget(),
+        '/splash': (context) => const SplashScreenWidget(),
         '/home': (context) => const HomePage(),
         '/onboarding': (context) => const OnboardingWidget(),
         '/homeFeed': (context) => const HomeFeedWidget(),

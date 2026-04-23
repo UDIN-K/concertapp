@@ -72,7 +72,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
 
   Widget _buildProfileHeader(FlutterFlowTheme theme) {
     return SizedBox(
-      height: 340,
+      height: 380,
       child: Stack(
         children: [
           LayoutBuilder(
@@ -143,14 +143,14 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                   Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text('Alex Rivers',
+                      Text(_authService.currentAppUser?.displayName ?? 'Guest User',
                         style: theme.headlineMedium.override(
                           font: GoogleFonts.poppins(fontWeight: FontWeight.w800),
                           color: theme.primaryText, letterSpacing: 0.0,
                           fontWeight: FontWeight.w800, lineHeight: 1.2,
                         ),
                       ),
-                      Text('@vibe_explorer',
+                      Text(_authService.currentAppUser?.email ?? 'Not logged in',
                         style: theme.bodyMedium.override(
                           font: GoogleFonts.urbanist(), color: theme.tertiary,
                           letterSpacing: 0.0, lineHeight: 1.45,
@@ -164,7 +164,7 @@ class _UserProfileWidgetState extends State<UserProfileWidget> {
                     child: BackdropFilter(
                       filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
                       child: Container(
-                        width: 320,
+                        width: double.infinity,
                         decoration: BoxDecoration(
                           color: theme.surface40,
                           borderRadius: BorderRadius.circular(24),

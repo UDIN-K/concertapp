@@ -235,15 +235,13 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                     children: [
                       wrapWithModel(model: _model.summaryRowModel1,
                         updateCallback: () => safeSetState(() {}),
-                        child: const SummaryRowWidget(label: 'VIP Standing x 2', value: '\$450.00'),
+                        child: const SummaryRowWidget(label: 'VIP Standing x 2', value: 'Rp 4.500.000'),
                       ),
-                      wrapWithModel(model: _model.summaryRowModel2,
-                        updateCallback: () => safeSetState(() {}),
-                        child: const SummaryRowWidget(label: 'Service Fee', value: '\$12.50'),
+                      wrapWithModel(model: _model.summaryRowModel2, updateCallback: () => safeSetState(() {}),
+                        child: const SummaryRowWidget(label: 'Service Fee', value: 'Rp 125.000'),
                       ),
-                      wrapWithModel(model: _model.summaryRowModel3,
-                        updateCallback: () => safeSetState(() {}),
-                        child: const SummaryRowWidget(label: 'Tax (VAT)', value: '\$8.00'),
+                      wrapWithModel(model: _model.summaryRowModel3, updateCallback: () => safeSetState(() {}),
+                        child: const SummaryRowWidget(label: 'Tax (VAT)', value: 'Rp 80.000'),
                       ),
                       Divider(height: 16, thickness: 1, color: theme.alternate),
                       Padding(
@@ -251,14 +249,14 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('Total Amount',
+                            Text('Total Pembayaran',
                               style: theme.titleMedium.override(
                                 font: GoogleFonts.urbanist(fontWeight: FontWeight.bold),
                                 color: theme.primaryText, letterSpacing: 0.0,
                                 fontWeight: FontWeight.bold, lineHeight: 1.3,
                               ),
                             ),
-                            Text('Rp 7.050.000.50',
+                            Text('Rp 4.705.000',
                               style: theme.titleMedium.override(
                                 font: GoogleFonts.urbanist(fontWeight: FontWeight.w800),
                                 color: theme.primary, letterSpacing: 0.0,
@@ -295,7 +293,7 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
           wrapWithModel(model: _model.paymentCardModel1,
             updateCallback: () => safeSetState(() {}),
             child: PaymentCardWidget(
-              detail: 'Balance: \$1,240.00',
+              detail: 'Saldo: Rp 12.400.000',
               icon: Icon(Icons.account_balance_wallet_rounded, color: theme.primaryText, size: 24),
               name: 'Vibe Wallet', selected: true,
             ),
@@ -411,17 +409,9 @@ class _CheckoutWidgetState extends State<CheckoutWidget> {
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Rp 7.050.000.50',
-                          style: theme.headlineSmall.override(
-                            font: GoogleFonts.lexendDeca(fontWeight: FontWeight.w800),
-                            color: theme.primaryText, letterSpacing: 0.0, fontWeight: FontWeight.w800,
-                          ),
-                        ),
-                        Text('Incl. all taxes',
-                          style: theme.labelSmall.override(
-                            font: GoogleFonts.poppins(), color: theme.secondaryText,
-                            letterSpacing: 0.0, lineHeight: 1.2,
-                          ),
+                        Text('Total', style: GoogleFonts.urbanist(fontSize: 12, color: theme.secondaryText)),
+                        Text('Rp 4.705.000',
+                          style: GoogleFonts.poppins(fontSize: 20, fontWeight: FontWeight.w800, color: theme.primaryText),
                         ),
                       ],
                     ),

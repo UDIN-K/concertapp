@@ -234,7 +234,7 @@ class _SearchExploreWidgetState extends State<SearchExploreWidget> {
             child: ConcertCardWidget(
               date: 'OCT 24',
               img_desc: 'https://dimg.dreamflow.cloud/v1/image/electronic%20music%20concert%20with%20neon%20lights%20and%20laser%20show',
-              price: '\$89', rating: '4.9',
+              price: 'Rp 890.000', rating: '4.9',
               title: 'Neon Jungle Tour', venue: 'Stadium Jakarta',
               onTap: () => Navigator.pushNamed(context, '/concertDetails'),
             ),
@@ -245,7 +245,7 @@ class _SearchExploreWidgetState extends State<SearchExploreWidget> {
             child: ConcertCardWidget(
               date: 'OCT 28',
               img_desc: 'https://dimg.dreamflow.cloud/v1/image/jazz%20band%20performing%20in%20a%20moody%20dimly%20lit%20club',
-              price: '\$45', rating: '4.8',
+              price: 'Rp 450.000', rating: '4.8',
               title: 'Midnight Jazz Sessions', venue: 'The Blue Note',
               onTap: () => Navigator.pushNamed(context, '/concertDetails'),
             ),
@@ -256,7 +256,7 @@ class _SearchExploreWidgetState extends State<SearchExploreWidget> {
             child: ConcertCardWidget(
               date: 'NOV 02',
               img_desc: 'https://dimg.dreamflow.cloud/v1/image/crowd%20at%20a%20massive%20outdoor%20music%20festival%20at%20sunset',
-              price: '\$120', rating: '4.7',
+              price: 'Rp 1.200.000', rating: '4.7',
               title: 'Rhythm & Bass Festival', venue: 'Ecopark Ancol',
               onTap: () => Navigator.pushNamed(context, '/concertDetails'),
             ),

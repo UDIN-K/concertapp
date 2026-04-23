@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../services/auth_service.dart';
@@ -92,11 +93,19 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
 
   Future<void> _googleSignIn() async {
     setState(() => isLoading = true);
+    final platform = kIsWeb ? 'Web (Chrome)' : 'Android';
+    
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Mendeteksi environment: $platform...')),
+      );
+    }
+
     try {
       final user = await _authService.signInWithGoogle();
       if (user != null && mounted) {
         Navigator.pushReplacementNamed(context, '/home');
-      } else if (mounted) {
+      } else if (mounted && kIsWeb) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Redirecting to Google sign-in...')),
         );
@@ -107,10 +116,13 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
           SnackBar(content: Text(_mapAuthError(e, isGoogle: true))),
         );
       }
-    } catch (_) {
+    } catch (e) {
       if (mounted) {
+        final errorMsg = !kIsWeb
+            ? 'Login Google di Android gagal. Pastikan SHA-1 sudah terdaftar di Firebase Console.'
+            : 'Google Sign-In gagal. Please try again.';
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Google Sign-In failed. Please try again.')),
+          SnackBar(content: Text(errorMsg)),
         );
       }
     } finally {
@@ -154,18 +166,19 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: theme.primaryBackground,
-        body: SingleChildScrollView(
-          primary: false,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(24, 32, 24, 32),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
+        body: SafeArea(
+          child: SingleChildScrollView(
+            primary: false,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(24, 32, 24, 32),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
                     _buildLogo(theme),
                     _buildTabSwitcher(theme),
                     _buildGoogleButton(theme),
@@ -208,6 +221,7 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
             ],
           ),
         ),
+      ),
       ),
     );
   }

@@ -13,9 +13,11 @@ class SeatNodeWidget extends StatefulWidget {
   const SeatNodeWidget({
     super.key,
     this.status = 'available',
+    this.onTap,
   });
 
   final String status; // 'available', 'selected', 'taken'
+  final VoidCallback? onTap;
 
   @override
   State<SeatNodeWidget> createState() => _SeatNodeWidgetState();
@@ -38,19 +40,22 @@ class _SeatNodeWidgetState extends State<SeatNodeWidget> {
         color = theme.secondaryBackground;
     }
 
-    return Container(
-      width: 32,
-      height: 32,
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(8),
-        border: widget.status == 'available' 
-          ? Border.all(color: theme.alternate)
+    return GestureDetector(
+      onTap: widget.onTap,
+      child: Container(
+        width: 32,
+        height: 32,
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(8),
+          border: widget.status == 'available' 
+            ? Border.all(color: theme.alternate)
+            : null,
+        ),
+        child: widget.status == 'selected' 
+          ? const Icon(Icons.check, size: 16, color: Colors.white)
           : null,
       ),
-      child: widget.status == 'selected' 
-        ? const Icon(Icons.check, size: 16, color: Colors.white)
-        : null,
     );
   }
 }

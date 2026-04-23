@@ -399,7 +399,7 @@ class _HomeFeedWidgetState extends State<HomeFeedWidget> {
                         img_desc:
                             'https://dimg.dreamflow.cloud/v1/image/jazz%20band%20performing',
                         location: 'Blue Note Club',
-                        price: 'From \$45',
+                        price: 'Mulai Rp 450.000',
                         title: 'The Midnight Echoes',
                         onTap: () => Navigator.pushNamed(context, '/concertDetails'),
                       ),
@@ -411,7 +411,7 @@ class _HomeFeedWidgetState extends State<HomeFeedWidget> {
                         img_desc:
                             'https://dimg.dreamflow.cloud/v1/image/edm%20festival%20crowd',
                         location: 'Stadium Arena',
-                        price: 'From \$89',
+                        price: 'Mulai Rp 890.000',
                         title: 'Electric Dreamland',
                         onTap: () => Navigator.pushNamed(context, '/concertDetails'),
                       ),
@@ -423,7 +423,7 @@ class _HomeFeedWidgetState extends State<HomeFeedWidget> {
                         img_desc:
                             'https://dimg.dreamflow.cloud/v1/image/choir%20performance',
                         location: 'The Grand Hall',
-                        price: 'From \$60',
+                        price: 'Mulai Rp 600.000',
                         title: 'Vocal Harmony Night',
                         onTap: () => Navigator.pushNamed(context, '/concertDetails'),
                       ),
@@ -435,7 +435,7 @@ class _HomeFeedWidgetState extends State<HomeFeedWidget> {
                         img_desc:
                             'https://dimg.dreamflow.cloud/v1/image/soul%20singer%20microphone',
                         location: 'Soul Lounge',
-                        price: 'From \$55',
+                        price: 'Mulai Rp 550.000',
                         title: 'Rhythm & Blues Gala',
                         onTap: () => Navigator.pushNamed(context, '/concertDetails'),
                       ),

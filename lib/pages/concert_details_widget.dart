@@ -690,11 +690,13 @@ class _ConcertDetailsWidgetState extends State<ConcertDetailsWidget> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
+                                Expanded(
+                                  flex: 1,
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
                                     Text(
                                       'Mulai dari',
                                       style: FlutterFlowTheme.of(context)
@@ -792,6 +794,7 @@ class _ConcertDetailsWidgetState extends State<ConcertDetailsWidget> {
                                     ),
                                   ],
                                 ),
+                                ),
                                 Expanded(
                                   child: wrapWithModel(
                                     model: _model.buttonModel,
@@ -818,7 +821,7 @@ class _ConcertDetailsWidgetState extends State<ConcertDetailsWidget> {
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(width: 24)),
+                              ].divide(const SizedBox(width: 8)),
                             ),
                           ),
                         ),

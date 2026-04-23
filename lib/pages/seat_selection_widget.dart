@@ -216,17 +216,20 @@ class _SeatSelectionWidgetState extends State<SeatSelectionWidget> {
                             ],
                           ),
                         ),
-                        Column(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            _buildSeatRow(0, 7),
-                            _buildSeatRow(7, 14),
-                            _buildSeatRow(14, 23),
-                            _buildSeatRow(23, 32),
-                            _buildSeatRow(32, 41),
-                          ].divide(const SizedBox(height: 4)),
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              _buildSeatRow(0, 7),
+                              _buildSeatRow(7, 14),
+                              _buildSeatRow(14, 23),
+                              _buildSeatRow(23, 32),
+                              _buildSeatRow(32, 41),
+                            ].divide(const SizedBox(height: 4)),
+                          ),
                         ),
                         Row(
                           mainAxisSize: MainAxisSize.max,
@@ -457,7 +460,18 @@ class _SeatSelectionWidgetState extends State<SeatSelectionWidget> {
         return wrapWithModel(
           model: _model.seatNodeModels[index],
           updateCallback: () => safeSetState(() {}),
-          child: SeatNodeWidget(status: _seatStatuses[index]),
+          child: SeatNodeWidget(
+            status: _seatStatuses[index],
+            onTap: () {
+              setState(() {
+                if (_seatStatuses[index] == 'available') {
+                  _seatStatuses[index] = 'selected';
+                } else if (_seatStatuses[index] == 'selected') {
+                  _seatStatuses[index] = 'available';
+                }
+              });
+            },
+          ),
         );
       }).divide(const SizedBox(width: 4)),
     );
