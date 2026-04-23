@@ -4,7 +4,7 @@ class AppUser {
   final String email;
   final String photoUrl;
 
-  AppUser({
+  const AppUser({
     required this.uid,
     required this.displayName,
     required this.email,

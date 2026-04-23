@@ -182,24 +182,6 @@
       "languageVersion": "3.2"
     },
     {
-      "name": "firebase_performance",
-      "rootUri": "file:///home/udin/.pub-cache/hosted/pub.dev/firebase_performance-0.11.3",
-      "packageUri": "lib/",
-      "languageVersion": "3.2"
-    },
-    {
-      "name": "firebase_performance_platform_interface",
-      "rootUri": "file:///home/udin/.pub-cache/hosted/pub.dev/firebase_performance_platform_interface-0.1.6+7",
-      "packageUri": "lib/",
-      "languageVersion": "3.2"
-    },
-    {
-      "name": "firebase_performance_web",
-      "rootUri": "file:///home/udin/.pub-cache/hosted/pub.dev/firebase_performance_web-0.1.8+5",
-      "packageUri": "lib/",
-      "languageVersion": "3.4"
-    },
-    {
       "name": "fixnum",
       "rootUri": "file:///home/udin/.pub-cache/hosted/pub.dev/fixnum-1.1.1",
       "packageUri": "lib/",
