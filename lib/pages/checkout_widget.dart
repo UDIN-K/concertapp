@@ -9,7 +9,6 @@ import 'dart:ui';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:material_palette/material_palette.dart';
 
 import 'checkout_model.dart';
 export 'checkout_model.dart';

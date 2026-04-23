@@ -326,34 +326,37 @@ class _HomeFeedWidgetState extends State<HomeFeedWidget> {
                               wrapWithModel(
                                 model: _model.featuredCardModel1,
                                 updateCallback: () => safeSetState(() {}),
-                                child: const FeaturedCardWidget(
+                                child: FeaturedCardWidget(
                                   date: 'Oct 24 - Madison Square Garden',
                                   img_desc:
                                       'https://dimg.dreamflow.cloud/v1/image/cyberpunk%20concert%20stage%20purple%20lights',
                                   tag: 'TRENDING',
                                   title: 'Midnight Neon Tour',
+                                  onTap: () => Navigator.pushNamed(context, '/concertDetails'),
                                 ),
                               ),
                               wrapWithModel(
                                 model: _model.featuredCardModel2,
                                 updateCallback: () => safeSetState(() {}),
-                                child: const FeaturedCardWidget(
+                                child: FeaturedCardWidget(
                                   date: 'Nov 02 - Red Rocks Amphitheatre',
                                   img_desc:
                                       'https://dimg.dreamflow.cloud/v1/image/acoustic%20singer%20on%20stage%20outdoor%20forest',
                                   tag: 'SELLING FAST',
                                   title: 'Acoustic Forest Sessions',
+                                  onTap: () => Navigator.pushNamed(context, '/concertDetails'),
                                 ),
                               ),
                               wrapWithModel(
                                 model: _model.featuredCardModel3,
                                 updateCallback: () => safeSetState(() {}),
-                                child: const FeaturedCardWidget(
+                                child: FeaturedCardWidget(
                                   date: 'Dec 15 - Warehouse 7',
                                   img_desc:
                                       'https://dimg.dreamflow.cloud/v1/image/dark%20techno%20club%20laser%20lights',
                                   tag: 'NEW',
                                   title: 'Techno Pulse 2024',
+                                  onTap: () => Navigator.pushNamed(context, '/concertDetails'),
                                 ),
                               ),
                             ].divide(const SizedBox(width: 24)),
@@ -392,45 +395,49 @@ class _HomeFeedWidgetState extends State<HomeFeedWidget> {
                     wrapWithModel(
                       model: _model.eventItemModel1,
                       updateCallback: () => safeSetState(() {}),
-                      child: const EventItemWidget(
+                      child: EventItemWidget(
                         img_desc:
                             'https://dimg.dreamflow.cloud/v1/image/jazz%20band%20performing',
                         location: 'Blue Note Club',
                         price: 'From \$45',
                         title: 'The Midnight Echoes',
+                        onTap: () => Navigator.pushNamed(context, '/concertDetails'),
                       ),
                     ),
                     wrapWithModel(
                       model: _model.eventItemModel2,
                       updateCallback: () => safeSetState(() {}),
-                      child: const EventItemWidget(
+                      child: EventItemWidget(
                         img_desc:
                             'https://dimg.dreamflow.cloud/v1/image/edm%20festival%20crowd',
                         location: 'Stadium Arena',
                         price: 'From \$89',
                         title: 'Electric Dreamland',
+                        onTap: () => Navigator.pushNamed(context, '/concertDetails'),
                       ),
                     ),
                     wrapWithModel(
                       model: _model.eventItemModel3,
                       updateCallback: () => safeSetState(() {}),
-                      child: const EventItemWidget(
+                      child: EventItemWidget(
                         img_desc:
                             'https://dimg.dreamflow.cloud/v1/image/choir%20performance',
                         location: 'The Grand Hall',
                         price: 'From \$60',
                         title: 'Vocal Harmony Night',
+                        onTap: () => Navigator.pushNamed(context, '/concertDetails'),
                       ),
                     ),
                     wrapWithModel(
                       model: _model.eventItemModel4,
                       updateCallback: () => safeSetState(() {}),
-                      child: const EventItemWidget(
+                      child: EventItemWidget(
                         img_desc:
                             'https://dimg.dreamflow.cloud/v1/image/soul%20singer%20microphone',
                         location: 'Soul Lounge',
                         price: 'From \$55',
                         title: 'Rhythm & Blues Gala',
+                        onTap: () => Navigator.pushNamed(context, '/concertDetails'),
                       ),
                     ),
                   ].divide(const SizedBox(height: 16)),

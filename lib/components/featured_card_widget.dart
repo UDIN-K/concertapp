@@ -18,12 +18,14 @@ class FeaturedCardWidget extends StatefulWidget {
     required this.img_desc,
     required this.tag,
     required this.title,
+    this.onTap,
   });
 
   final String date;
   final String img_desc;
   final String tag;
   final String title;
+  final VoidCallback? onTap;
 
   @override
   State<FeaturedCardWidget> createState() => _FeaturedCardWidgetState();
@@ -33,7 +35,9 @@ class _FeaturedCardWidgetState extends State<FeaturedCardWidget> {
   @override
   Widget build(BuildContext context) {
     final theme = FlutterFlowTheme.of(context);
-    return Container(
+    return GestureDetector(
+      onTap: widget.onTap,
+      child: Container(
       width: 280,
       height: 200,
       decoration: BoxDecoration(
@@ -135,6 +139,7 @@ class _FeaturedCardWidgetState extends State<FeaturedCardWidget> {
           ],
         ),
       ),
+    ),
     );
   }
 }

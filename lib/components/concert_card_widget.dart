@@ -20,6 +20,7 @@ class ConcertCardWidget extends StatefulWidget {
     required this.img_desc,
     this.date = '',
     this.rating = '',
+    this.onTap,
     // Legacy compatibility
     this.img_url,
     this.location,
@@ -33,6 +34,7 @@ class ConcertCardWidget extends StatefulWidget {
   final String rating;
   final String? img_url;
   final String? location;
+  final VoidCallback? onTap;
 
   @override
   State<ConcertCardWidget> createState() => _ConcertCardWidgetState();
@@ -44,7 +46,9 @@ class _ConcertCardWidgetState extends State<ConcertCardWidget> {
     final theme = FlutterFlowTheme.of(context);
     final imageUrl = widget.img_desc.isNotEmpty ? widget.img_desc : (widget.img_url ?? '');
 
-    return Container(
+    return GestureDetector(
+      onTap: widget.onTap,
+      child: Container(
       decoration: BoxDecoration(
         color: theme.secondaryBackground,
         borderRadius: BorderRadius.circular(20),
@@ -124,6 +128,7 @@ class _ConcertCardWidgetState extends State<ConcertCardWidget> {
           ),
         ],
       ),
+    ),
     );
   }
 }

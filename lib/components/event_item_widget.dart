@@ -18,12 +18,14 @@ class EventItemWidget extends StatefulWidget {
     required this.location,
     required this.price,
     required this.title,
+    this.onTap,
   });
 
   final String img_desc;
   final String location;
   final String price;
   final String title;
+  final VoidCallback? onTap;
 
   @override
   State<EventItemWidget> createState() => _EventItemWidgetState();
@@ -33,7 +35,9 @@ class _EventItemWidgetState extends State<EventItemWidget> {
   @override
   Widget build(BuildContext context) {
     final theme = FlutterFlowTheme.of(context);
-    return Container(
+    return GestureDetector(
+      onTap: widget.onTap,
+      child: Container(
       decoration: BoxDecoration(
         color: theme.secondaryBackground,
         borderRadius: BorderRadius.circular(20),
@@ -115,6 +119,7 @@ class _EventItemWidgetState extends State<EventItemWidget> {
           ),
         ],
       ),
+    ),
     );
   }
 }
